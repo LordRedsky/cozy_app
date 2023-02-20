@@ -7,7 +7,7 @@ Color orangeColor = Color(0xffFF9376);
 Color blackColor = Color(0xff000000);
 Color whiteColor = Color(0xffFFFFFF);
 Color greyColor = Color(0xff82868E);
-
+Color greyColorCard = Color(0xffF6F7F8);
 
 //!TEXT STYLE
 TextStyle blackTextStyle = GoogleFonts.poppins(
@@ -26,3 +26,10 @@ TextStyle purpleTextStyle = GoogleFonts.poppins(
   fontWeight: FontWeight.w500,
   color: purpleColor,
 );
+TextStyle regularTextStyle = GoogleFonts.poppins(
+  fontWeight: FontWeight.w400,
+  color: blackColor,
+);
+
+//!PADDING
+double edge = 24;
