@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/googl';
 
 //!COLOR
 Color purpleColor = Color(0xff5843BE);

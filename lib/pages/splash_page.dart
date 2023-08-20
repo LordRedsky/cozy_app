@@ -17,7 +17,7 @@ class SplashPage extends StatelessWidget {
                 child: Image.asset('assets/splash_img.png')),
             Padding(
               padding: const EdgeInsets.only(
-                top: 50,
+                top: 20,
                 left: 30,
               ),
               child: Column(
@@ -26,13 +26,13 @@ class SplashPage extends StatelessWidget {
                   Container(
                     height: 50,
                     width: 50,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage('assets/logo.png'),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Text(
@@ -41,7 +41,7 @@ class SplashPage extends StatelessWidget {
                       fontSize: 24,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(
@@ -50,7 +50,7 @@ class SplashPage extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   Container(

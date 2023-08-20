@@ -32,7 +32,7 @@ class CityCard extends StatelessWidget {
                           height: 30,
                           decoration: BoxDecoration(
                             color: purpleColor,
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                               bottomLeft: Radius.circular(36),
                             ),
                           ),
@@ -48,7 +48,7 @@ class CityCard extends StatelessWidget {
                     : Container(),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 11,
             ),
             Text(
