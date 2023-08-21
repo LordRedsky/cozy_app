@@ -1,3 +1,4 @@
+import 'package:cozy_app/pages/detail_page.dart';
 import 'package:flutter/material.dart';
 
 import '../models/space.dart';
@@ -14,48 +15,58 @@ class SpaceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(18),
-          child: Container(
-            width: 130,
-            height: 110,
-            child: Stack(
-              children: [
-                Image.asset(
-                  space.imageUrl,
-                ),
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Container(
-                    width: 70,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      color: purpleColor,
-                      borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(36),
-                      ),
-                    ),
-                    child: Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/star_icon.png',
-                            width: 22,
-                            height: 22,
-                          ),
-                          Text(
-                            '${space.rating}',
-                            style: whiteTextStyle.copyWith(
-                              fontSize: 13,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
+        InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DetailPage(),
+              ),
+            );
+          },
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(18),
+            child: Container(
+              width: 130,
+              height: 110,
+              child: Stack(
+                children: [
+                  Image.asset(
+                    space.imageUrl,
                   ),
-                )
-              ],
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      width: 70,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        color: purpleColor,
+                        borderRadius: const BorderRadius.only(
+                          bottomLeft: Radius.circular(36),
+                        ),
+                      ),
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/star_icon.png',
+                              width: 22,
+                              height: 22,
+                            ),
+                            Text(
+                              '${space.rating}',
+                              style: whiteTextStyle.copyWith(
+                                fontSize: 13,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
