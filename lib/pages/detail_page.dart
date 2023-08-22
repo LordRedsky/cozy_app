@@ -1,12 +1,45 @@
+import 'package:cozy_app/pages/error_page.dart';
 import 'package:cozy_app/theme.dart';
 import 'package:cozy_app/widgets/facility_item.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
+
+// Future<void> _launchUrl(String url, context) async {
+//   final Uri urlParse = Uri.parse(url);
+//   if (!await launchUrl(urlParse)) {
+//     // } else {
+//     // throw Exception('Could not launch $urlParse');
+// Navigator.push(
+//   context,
+//   MaterialPageRoute(builder: (context) => ErrorPage()),
+// );
+//   }
+// }
 
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    launchUrlAdress(String url) async {
+      final Uri urlParse = Uri.parse(url);
+      var cekLoad = await canLaunchUrl(urlParse);
+      // canLaunchUrl(url);
+      // launchUrl(urlParse);
+      print(cekLoad);
+      if (cekLoad) {
+        launchUrl(urlParse);
+      } else {
+        // throw Exception('Could not launch $urlParse');
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ErrorPage()),
+        );
+      }
+    }
+
     return Scaffold(
       backgroundColor: whiteColor,
       body: SafeArea(
@@ -222,9 +255,19 @@ class DetailPage extends StatelessWidget {
                               'Jln. Kapan Sukses No. 20\nPalembang',
                               style: greyTextStyle,
                             ),
-                            Image.asset(
-                              'assets/btn_map.png',
-                              width: 40,
+                            InkWell(
+                              onTap: () {
+                                launchUrlAdress(
+                                  'https://www.google.co.id/maps/place/Jl.+Malioboro,+Sosromenduran,+Gedong+Tengen,+Kota+Yogyakarta,+Daerah+Istimewa+Yogyakarta/@-7.7926455,110.365846,17z/data=!3m1!4b1!4m6!3m5!1s0x2e7a5825fa6106c5:0x3ea4c521a5ed1133!8m2!3d-7.7926455!4d110.365846!16zL20vMDltM2tu?entry=ttu',
+                                );
+
+                                // _launchUrl('qwertysfd.com', context);
+                                launchUrlAdress('qwertysfd.com');
+                              },
+                              child: Image.asset(
+                                'assets/btn_map.png',
+                                width: 40,
+                              ),
                             ),
                           ],
                         ),
@@ -239,7 +282,14 @@ class DetailPage extends StatelessWidget {
                         height: 50,
                         width: MediaQuery.of(context).size.width - (2 * edge),
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            launchUrlAdress(
+                              // Uri.parse(
+                              'tel:+628158856459',
+                              // context
+                              // ),
+                            );
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: purpleColor,
                             shape: RoundedRectangleBorder(
@@ -290,3 +340,9 @@ class DetailPage extends StatelessWidget {
     );
   }
 }
+
+// Future<void> _lauchUrl(Uri url) async {
+//   if (!await launchUrl(url)) {
+//     throw Exception('Could not launch $url');
+//   }
+// }
