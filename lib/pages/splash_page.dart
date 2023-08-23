@@ -54,7 +54,7 @@ class SplashPage extends StatelessWidget {
                   const SizedBox(
                     height: 40,
                   ),
-                  Container(
+                  SizedBox(
                     width: 210,
                     height: 50,
                     child: ElevatedButton(
@@ -62,7 +62,7 @@ class SplashPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomePage(),
+                            builder: (context) => const HomePage(),
                           ),
                         );
                       },

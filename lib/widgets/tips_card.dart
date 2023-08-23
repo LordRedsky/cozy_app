@@ -8,7 +8,7 @@ class TipsCard extends StatelessWidget {
 
   // const TipsCard({super.key});
 
-  TipsCard(this.tips);
+  const TipsCard(this.tips, {super.key});
 
   @override
   Widget build(BuildContext context) {

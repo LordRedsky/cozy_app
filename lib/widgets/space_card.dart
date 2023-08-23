@@ -9,7 +9,7 @@ class SpaceCard extends StatelessWidget {
 
   final Space space;
 
-  SpaceCard(this.space);
+  const SpaceCard(this.space, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +20,13 @@ class SpaceCard extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => DetailPage(),
+                builder: (context) => const DetailPage(),
               ),
             );
           },
           child: ClipRRect(
             borderRadius: BorderRadius.circular(18),
-            child: Container(
+            child: SizedBox(
               width: 130,
               height: 110,
               child: Stack(

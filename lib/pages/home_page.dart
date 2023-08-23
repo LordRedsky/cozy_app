@@ -1,18 +1,23 @@
 import 'package:cozy_app/models/city.dart';
 import 'package:cozy_app/models/space.dart';
 import 'package:cozy_app/models/tips.dart';
+import 'package:cozy_app/provider/space_provider.dart';
 import 'package:cozy_app/theme.dart';
 import 'package:cozy_app/widgets/bottom_navbar_item.dart';
 import 'package:cozy_app/widgets/city_card.dart';
 import 'package:cozy_app/widgets/space_card.dart';
 import 'package:cozy_app/widgets/tips_card.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var spaceProvider = Provider.of<SpaceProvider>(context);
+    spaceProvider.getRecomendedSpace();
+
     return Scaffold(
       backgroundColor: whiteColor,
       body: SafeArea(
@@ -61,7 +66,7 @@ class HomePage extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            Container(
+            SizedBox(
               height: 150,
               child: ListView(
                 scrollDirection: Axis.horizontal,
@@ -131,6 +136,14 @@ class HomePage extends StatelessWidget {
                       city: 'Bandung',
                       country: 'Germany',
                       rating: 4,
+                      address: 'Jl Suksess',
+                      phone: 'tel:+6281588564590',
+                      mapUrl:
+                          'https://www.google.co.id/maps/place/Jl.+Malioboro,+Sosromenduran,+Gedong+Tengen,+Kota+Yogyakarta,+Daerah+Istimewa+Yogyakarta/@-7.7926455,110.365846,17z/data=!3m1!4b1!4m6!3m5!1s0x2e7a5825fa6106c5:0x3ea4c521a5ed1133!8m2!3d-7.7926455!4d110.365846!16zL20vMDltM2tu?entry=ttu',
+                      numberOfBedrooms: 3,
+                      numberOfCupboards: 2,
+                      numberOfKitchens: 3,
+                      photos: [],
                     ),
                   ),
                   const SizedBox(
@@ -145,6 +158,14 @@ class HomePage extends StatelessWidget {
                       city: 'Seattle',
                       country: 'Bogor',
                       rating: 5,
+                      address: 'Jl Suksess',
+                      phone: 'tel:+6281588564590',
+                      mapUrl:
+                          'https://www.google.co.id/maps/place/Jl.+Malioboro,+Sosromenduran,+Gedong+Tengen,+Kota+Yogyakarta,+Daerah+Istimewa+Yogyakarta/@-7.7926455,110.365846,17z/data=!3m1!4b1!4m6!3m5!1s0x2e7a5825fa6106c5:0x3ea4c521a5ed1133!8m2!3d-7.7926455!4d110.365846!16zL20vMDltM2tu?entry=ttu',
+                      numberOfBedrooms: 3,
+                      numberOfCupboards: 2,
+                      numberOfKitchens: 3,
+                      photos: [],
                     ),
                   ),
                   const SizedBox(
@@ -159,6 +180,14 @@ class HomePage extends StatelessWidget {
                       city: 'Jakarta',
                       country: 'Indonesia',
                       rating: 3,
+                      address: 'Jl Suksess',
+                      phone: 'tel:+6281588564590',
+                      mapUrl:
+                          'https://www.google.co.id/maps/place/Jl.+Malioboro,+Sosromenduran,+Gedong+Tengen,+Kota+Yogyakarta,+Daerah+Istimewa+Yogyakarta/@-7.7926455,110.365846,17z/data=!3m1!4b1!4m6!3m5!1s0x2e7a5825fa6106c5:0x3ea4c521a5ed1133!8m2!3d-7.7926455!4d110.365846!16zL20vMDltM2tu?entry=ttu',
+                      numberOfBedrooms: 3,
+                      numberOfCupboards: 2,
+                      numberOfKitchens: 3,
+                      photos: [],
                     ),
                   ),
                 ],
@@ -218,10 +247,10 @@ class HomePage extends StatelessWidget {
           horizontal: edge,
         ),
         decoration: BoxDecoration(
-          color: Color(0xffF6F7F8),
+          color: const Color(0xffF6F7F8),
           borderRadius: BorderRadius.circular(23),
         ),
-        child: Row(
+        child: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             BottomNavbarItem(

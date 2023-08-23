@@ -4,7 +4,7 @@ import '../models/city.dart';
 
 class CityCard extends StatelessWidget {
   final City city;
-  CityCard(this.city);
+  const CityCard(this.city, {super.key});
 
   @override
   Widget build(BuildContext context) {

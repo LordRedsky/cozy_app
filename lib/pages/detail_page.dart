@@ -3,20 +3,6 @@ import 'package:cozy_app/theme.dart';
 import 'package:cozy_app/widgets/facility_item.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
-
-// Future<void> _launchUrl(String url, context) async {
-//   final Uri urlParse = Uri.parse(url);
-//   if (!await launchUrl(urlParse)) {
-//     // } else {
-//     // throw Exception('Could not launch $urlParse');
-// Navigator.push(
-//   context,
-//   MaterialPageRoute(builder: (context) => ErrorPage()),
-// );
-//   }
-// }
 
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key});
@@ -26,16 +12,13 @@ class DetailPage extends StatelessWidget {
     launchUrlAdress(String url) async {
       final Uri urlParse = Uri.parse(url);
       var cekLoad = await canLaunchUrl(urlParse);
-      // canLaunchUrl(url);
-      // launchUrl(urlParse);
-      print(cekLoad);
+
       if (cekLoad) {
         launchUrl(urlParse);
       } else {
-        // throw Exception('Could not launch $urlParse');
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ErrorPage()),
+          MaterialPageRoute(builder: (context) => const ErrorPage()),
         );
       }
     }
@@ -133,7 +116,7 @@ class DetailPage extends StatelessWidget {
                                 Image.asset(
                                   'assets/star_icon.png',
                                   width: 20,
-                                  color: Color(0xff989BA1),
+                                  color: const Color(0xff989BA1),
                                 ),
                               ],
                             ),
